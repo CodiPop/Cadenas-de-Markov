@@ -1,11 +1,14 @@
 import numpy as np
 
 abc = open('gabo.txt').read()
-k=25
-line = abc[:k]
+
+
 ##k = int(input("K:"))
+k=25
+n = int(input("N:"))
+line = abc[:k]
 modelo = abc.split()
-modelo
+
 def h_pares(modelo):
     for i in range(len(modelo)-1):
         yield (modelo[i], modelo[i+1])
@@ -31,5 +34,10 @@ for i in range(k):
     cMarkov.append(np.random.choice(Lkeys[cMarkov[-1]]))
 
 CADENA = ' '.join(cMarkov)
-casiqueno=line.join(CADENA)
-print(line + " " + CADENA) 
+casiqueno=line + CADENA
+##Muestra cadna generada
+print(CADENA)
+##Muestra line + la cadena generada con restriccion de longitud N
+print(casiqueno[0:n])
+
+
